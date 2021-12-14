@@ -23,11 +23,14 @@ jobs:
       run: yarn
     - name: Build docs
       run: yarn docs:build
-    - name: deploy by scp
+    # scp-action seems doesn't work with `.vuepress`
+    - name: mv docs
+      run: mv docs/.vuepress/dist .
+    - name: Deploy by scp
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PRIVATE_KEY }}
-        source: "docs/.vuepress/dist/*"
+        source: "dist/*"
         target: "/var/www/tech-writing"
