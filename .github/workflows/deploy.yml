@@ -29,5 +29,5 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.PRIVATE_KEY }}
-        source: "docs/.vuepress/dist"
+        source: "docs/.vuepress/dist/*"
         target: "/var/www/tech-writing"
