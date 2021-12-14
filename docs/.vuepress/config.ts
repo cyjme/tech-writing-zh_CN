@@ -7,12 +7,36 @@ export default defineUserConfig<DefaultThemeOptions>({
   title: 'Technical Writing - 技术写作',
   description: '面向技术人员的技术写作教程',
   base: '/tech-writing/',
+  plugins: [
+    [
+      '@vuepress/plugin-search',
+      {
+        locales: {
+          '/': {
+            placeholder: '搜索',
+          },
+        },
+      },
+    ],
+    [
+      '@vuepress/plugin-google-analytics',
+      {
+        id: 'G-4SL04M21NM',
+      },
+    ],
+  ],
 
   themeConfig: {
     logo: 'https://developers.google.com/tech-writing/images/TechWritingLogo.png',
     contributors: false,
     lastUpdated: false,
     sidebarDepth: 0,
+    navbar: [
+      {
+        text: "GitHub",
+        link: "https://github.com/cyjme/tech-writing-zh_CN",
+      }
+    ],
     sidebar: [
       {
         text: "概述",
